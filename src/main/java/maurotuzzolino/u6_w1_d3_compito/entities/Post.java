@@ -1,7 +1,6 @@
 package maurotuzzolino.u6_w1_d3_compito.entities;
 
 import jakarta.persistence.*;
-import org.springframework.data.annotation.Id;
 
 @Entity
 public class Post {
@@ -22,8 +21,7 @@ public class Post {
     public Post() {
     }
 
-    public Post(long id, String titolo, String contenuto, int tempoDiLettura, String cover, Author author) {
-        this.id = id;
+    public Post(String titolo, String contenuto, int tempoDiLettura, String cover, Author author) {
         this.titolo = titolo;
         this.contenuto = contenuto;
         this.tempoDiLettura = tempoDiLettura;

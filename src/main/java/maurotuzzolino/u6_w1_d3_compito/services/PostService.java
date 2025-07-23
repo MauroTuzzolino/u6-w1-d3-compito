@@ -13,8 +13,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class PostService {
 
@@ -25,9 +23,9 @@ public class PostService {
     private AuthorRepository authorRepository;
 
     // 1. Lista di tutti i post
-    public List<Post> findAll() {
-        return postRepository.findAll();
-    }
+//    public List<Post> findAll() {
+//        return postRepository.findAll();
+//    }
 
     public Page<Post> getPostsPaginated(Pageable pageable) {
         return postRepository.findAll(pageable);
