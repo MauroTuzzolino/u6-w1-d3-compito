@@ -5,10 +5,10 @@ import maurotuzzolino.u6_w1_d3_compito.entities.Post;
 import maurotuzzolino.u6_w1_d3_compito.payloads.NewPostPayload;
 import maurotuzzolino.u6_w1_d3_compito.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/posts")
@@ -18,9 +18,9 @@ public class PostController {
     private PostService postService;
 
     // 1. GET /posts
-    @GetMapping
-    public List<Post> getAllPosts() {
-        return postService.findAll();
+    @GetMapping("/page")
+    public Page<Post> getPostsPaginated(Pageable pageable) {
+        return postService.getPostsPaginated(pageable);
     }
 
     // 2. POST /posts

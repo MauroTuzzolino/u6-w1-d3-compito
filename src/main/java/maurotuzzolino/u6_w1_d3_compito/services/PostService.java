@@ -9,6 +9,8 @@ import maurotuzzolino.u6_w1_d3_compito.payloads.NewPostPayload;
 import maurotuzzolino.u6_w1_d3_compito.repositories.AuthorRepository;
 import maurotuzzolino.u6_w1_d3_compito.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -25,6 +27,10 @@ public class PostService {
     // 1. Lista di tutti i post
     public List<Post> findAll() {
         return postRepository.findAll();
+    }
+
+    public Page<Post> getPostsPaginated(Pageable pageable) {
+        return postRepository.findAll(pageable);
     }
 
     // 2. Trova un singolo post per ID
